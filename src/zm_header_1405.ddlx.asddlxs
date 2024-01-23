@@ -1,0 +1,64 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo: { typeName: 'Sales Order',
+                     typeNamePlural: 'Sales Orders',
+                     title: { type: #STANDARD, value: 'Id' } },
+       presentationVariant: [{ sortOrder: [{ by: 'Id', direction: #DESC }], visualizations: [{type: #AS_LINEITEM}]  }] }
+annotate view ZC_HEADER_1405 with
+{
+  @UI.facet: [{ id:            'Header',
+                 purpose:       #STANDARD,
+                 type:          #IDENTIFICATION_REFERENCE,
+                 label:         'Sales Order',
+                 position:      10 },
+               { id:            'Item',
+                 purpose:       #STANDARD,
+                 type:          #LINEITEM_REFERENCE,
+                 label:         'Items',
+                 position:      20,
+                 targetElement: '_Item'}]
+
+  @UI: { lineItem:       [ { position: 10, importance: #MEDIUM } ],
+         identification: [ { position: 10, label: 'Sales Order Id' } ] }
+  Id;
+
+  @UI: { lineItem:       [ { position: 20, importance: #HIGH } ] ,
+         identification: [ { position: 20 } ],
+         selectionField: [ { position: 20 } ] }
+  Email;
+  
+  @EndUserText.label: 'Name'
+  @UI: { lineItem:       [ { position: 30, importance: #HIGH } ] ,
+         identification: [ { position: 30 } ],
+         selectionField: [ { position: 30 } ] }
+  FirstName;
+  
+  @EndUserText.label: 'Surname'
+  @UI: { lineItem:       [ { position: 40, importance: #HIGH } ] ,
+         identification: [ { position: 40 } ],
+         selectionField: [ { position: 40 } ] }
+  LastName;
+
+  @UI: { lineItem:       [ { position: 50, importance: #MEDIUM } ] ,
+         identification: [ { position: 50 } ] }
+  Country;
+  
+  @EndUserText.label: 'Created on'
+  @UI: { lineItem:       [ { position: 60, importance: #MEDIUM } ] ,
+         identification: [ { position: 60 } ] }
+  CreatedOn;
+  
+  @EndUserText.label: 'Delivery date'
+  @UI: { lineItem:       [ { position: 70, importance: #HIGH } ] ,
+         identification: [ { position: 70 } ] }
+  DeliveryDate;
+  
+  @EndUserText.label: 'Order status'
+  @UI: { lineItem:       [ { position: 80, importance: #HIGH } ] ,
+         identification: [ { position: 80 } ] }
+  OrderStatus;
+  
+  @EndUserText.label: 'Image'
+  @UI: { lineItem:       [ { position: 90, importance: #HIGH } ] ,
+         identification: [ { position: 90 } ] }
+  ImageUrl;
+}

@@ -8,6 +8,7 @@ as projection on ZI_ITEM_1405
 {
     key Id,
         HeaderId,
+        @Search.defaultSearchElement: true
         Name,
         Description,
         ReleaseDate,

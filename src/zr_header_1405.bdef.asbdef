@@ -1,0 +1,26 @@
+managed implementation in class zbp_r_header_1405 unique;
+strict ( 2 );
+
+define behavior for ZR_HEADER_1405 //alias <alias_name>
+persistent table zheader_1405
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  association _Item { create; }
+}
+
+define behavior for ZR_ITEM_1405 //alias <alias_name>
+persistent table zitem_1405
+lock dependent by _Header
+authorization dependent by _Header
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) HeaderId;
+  association _Header;
+}

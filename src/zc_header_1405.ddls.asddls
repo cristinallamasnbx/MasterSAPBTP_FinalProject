@@ -20,6 +20,8 @@ as projection on ZI_HEADER_1405
         CreatedOn,
         DeliveryDate,
         OrderStatus,
+        @Semantics.imageUrl: true
+        @UI.textArrangement: #TEXT_ONLY
         ImageUrl,
         
         /* Associations */
