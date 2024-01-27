@@ -8,9 +8,11 @@
     dataClass: #MIXED
 }
 define root view entity ZR_HEADER_1405
-  as select from zheader_1405
+  as select from zheader_1405 
   composition [0..*] of ZR_ITEM_1405 as _Item {
-    key id            as Id,
+   key    id            as Id,
+     uuid          as UUID,
+   
         email         as Email,
         first_name    as FirstName,
         last_name     as LastName,

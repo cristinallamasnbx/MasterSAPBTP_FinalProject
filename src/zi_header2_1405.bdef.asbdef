@@ -1,8 +1,7 @@
-projection;
-strict ( 2 );
+interface;
 use draft;
 
-define behavior for ZC_HEADER_1405 //alias <alias_name>
+define behavior for ZI_HEADER2_1405 alias ZR_HEADER2_1405
 {
   use create;
   use update;
@@ -17,7 +16,7 @@ define behavior for ZC_HEADER_1405 //alias <alias_name>
   use association _Item { create; with draft; }
 }
 
-define behavior for ZC_ITEM_1405 //alias <alias_name>
+define behavior for ZI_ITEM2_1405 alias ZR_ITEM2_1405
 {
   use update;
   use delete;

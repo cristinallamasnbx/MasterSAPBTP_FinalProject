@@ -7,9 +7,10 @@
 
 define root view entity ZC_HEADER_1405
 provider contract transactional_query
-as projection on ZI_HEADER_1405
+as projection on ZI_HEADER2_1405
 {
-    key Id,
+    key UUID,
+        Id,
         @Search.defaultSearchElement: true
         Email,
         @Search.defaultSearchElement: true
