@@ -20,9 +20,10 @@ etag master LocalLastChangedAt
   association _Item { create ( features : instance, authorization : update ); with draft; }
 
   // Field features
-  field ( numbering : managed, readonly ) UUID;
-  field ( readonly ) Id;
-  field ( mandatory ) Email, FirstName, LastName, CreatedOn, OrderStatus;
+  //field ( readonly:update ) UUID;
+  field ( numbering : managed, readonly:update ) UUID;
+  //field ( readonly ) Id;
+  //field ( mandatory ) Email, FirstName, LastName, CreatedOn, OrderStatus;
 
   draft action Resume with additional implementation;
   draft action Edit;
@@ -70,9 +71,10 @@ etag master LocalLastChangedAt
   association _Header  { with draft; }
 
   // Field features
-  field ( numbering : managed, readonly ) UUID;
-  field ( readonly ) Id, HeaderUUID;
-  field ( mandatory ) Name, Description, ReleaseDate, Price, Height, Width, Depth, Quantity, UnitOfMeasure;
+  field ( numbering : managed, readonly : update ) UUID;
+  field ( readonly : update ) HeaderUUID;
+  //field ( readonly ) Id, HeaderUUID;
+  //field ( mandatory ) Name, Description, ReleaseDate, Price, Height, Width, Depth, Quantity, UnitOfMeasure;
 
   // Table mapping
   mapping for zitem_1405

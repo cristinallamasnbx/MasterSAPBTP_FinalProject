@@ -11,11 +11,15 @@ annotate entity ZC_ITEM_1405 with
                type:          #IDENTIFICATION_REFERENCE,
                label:         'Item',
                position:      10 } ]
+  
+  @UI.hidden: true
+  UUID;
+  
+  @UI.hidden: true
+  HeaderUUID;
+  
   @UI.hidden: true
   Id;
-
-  @UI.hidden: true
-  HeaderId;
   
   @UI: { lineItem:       [ { position: 10, importance: #HIGH } ],
          identification: [ { position: 10 } ] }

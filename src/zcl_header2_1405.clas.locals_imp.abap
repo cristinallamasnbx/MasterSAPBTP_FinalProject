@@ -104,24 +104,33 @@ CLASS lhc_Header IMPLEMENTATION.
 
     "CHECK lt_headers IS NOT INITIAL.
 
-    lv_update_requested = COND #( WHEN requested_authorizations-%update = if_abap_behv=>mk-on
-                                  THEN abap_true
-                                  ELSE abap_false ).
+*    lv_update_requested = COND #( WHEN requested_authorizations-%update = if_abap_behv=>mk-on
+*                                  THEN abap_true
+*                                  ELSE abap_false ).
+*
+*
+*    lv_delete_requested = COND #( WHEN requested_authorizations-%delete = if_abap_behv=>mk-on
+*                                  THEN abap_true
+*                                  ELSE abap_false ).
 
-
-    lv_delete_requested = COND #( WHEN requested_authorizations-%delete = if_abap_behv=>mk-on
-                                  THEN abap_true
-                                  ELSE abap_false ).
+*    LOOP AT lt_headers INTO DATA(ls_header).
+*      APPEND VALUE #( LET upd_auth = COND #( WHEN lv_update_granted EQ abap_true
+*                                             THEN if_abap_behv=>auth-allowed
+*                                             ELSE if_abap_behv=>auth-unauthorized )
+*
+*                          del_auth = COND #( WHEN lv_delete_granted EQ abap_true
+*                                             THEN if_abap_behv=>auth-allowed
+*                                             ELSE if_abap_behv=>auth-unauthorized )
+*
+*                      IN %tky         = ls_header-%tky
+*                         %update      = upd_auth
+*                         %delete      = del_auth
+*                    ) TO result.
+*    ENDLOOP.
 
     LOOP AT lt_headers INTO DATA(ls_header).
-      APPEND VALUE #( LET upd_auth = COND #( WHEN lv_update_granted EQ abap_true
-                                             THEN if_abap_behv=>auth-allowed
-                                             ELSE if_abap_behv=>auth-unauthorized )
-
-                          del_auth = COND #( WHEN lv_delete_granted EQ abap_true
-                                             THEN if_abap_behv=>auth-allowed
-                                             ELSE if_abap_behv=>auth-unauthorized )
-
+      APPEND VALUE #( LET upd_auth = abap_true
+                          del_auth = abap_true
                       IN %tky         = ls_header-%tky
                          %update      = upd_auth
                          %delete      = del_auth

@@ -16,6 +16,8 @@ annotate view ZC_HEADER_1405 with
                  label:         'Items',
                  position:      20,
                  targetElement: '_Item'}]
+  @UI.hidden: true
+  UUID;            
 
   @UI: { lineItem:       [ { position: 10, importance: #MEDIUM } ],
          identification: [ { position: 10, label: 'Sales Order Id' } ] }
