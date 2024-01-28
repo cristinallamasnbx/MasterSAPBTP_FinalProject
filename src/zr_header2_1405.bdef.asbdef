@@ -22,6 +22,7 @@ etag master LocalLastChangedAt
   // Field features
   //field ( readonly:update ) UUID;
   field ( numbering : managed, readonly:update ) UUID;
+  field ( readonly:update ) Id;
   //field ( readonly ) Id;
   //field ( mandatory ) Email, FirstName, LastName, CreatedOn, OrderStatus;
 
@@ -72,8 +73,8 @@ etag master LocalLastChangedAt
 
   // Field features
   field ( numbering : managed, readonly : update ) UUID;
-  field ( readonly : update ) HeaderUUID;
-  //field ( readonly ) Id, HeaderUUID;
+  //field ( readonly : update ) HeaderUUID;
+  field ( readonly: update ) Id, HeaderUUID;
   //field ( mandatory ) Name, Description, ReleaseDate, Price, Height, Width, Depth, Quantity, UnitOfMeasure;
 
   // Table mapping

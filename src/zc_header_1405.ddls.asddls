@@ -21,9 +21,11 @@ as projection on ZI_HEADER2_1405
         CreatedOn,
         DeliveryDate,
         OrderStatus,
-        @Semantics.imageUrl: true
-        @UI.textArrangement: #TEXT_ONLY
         ImageUrl,
+        
+        @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_VE_CUST_INITIAL'
+        @Semantics.imageUrl: true
+        virtual CustImageURL: abap.char( 528 ),
         
         /* Associations */
         _Item: redirected to composition child ZC_ITEM_1405
