@@ -18,13 +18,15 @@ annotate entity ZC_ITEM_1405 with
   @UI.hidden: true
   HeaderUUID;
   
-  @UI.hidden: true
+  @EndUserText.label: 'Item ID'
   Id;
   
+  @EndUserText.label: 'Name'
   @UI: { lineItem:       [ { position: 10, importance: #HIGH } ],
          identification: [ { position: 10 } ] }
   Name;
   
+  @EndUserText.label: 'Description'
   @UI: { lineItem:       [ { position: 20, importance: #HIGH } ],
          identification: [ { position: 20 } ] }
   Description;
@@ -39,25 +41,31 @@ annotate entity ZC_ITEM_1405 with
          identification: [ { position: 40 } ] }
   DiscontinuedDate;
   
+  @EndUserText.label: 'Price'
   @UI: { lineItem:       [ { position: 50, importance: #HIGH } ],
          identification: [ { position: 50 } ] }
   Price;
   
+  @EndUserText.label: 'Height'
   @UI: { lineItem:       [ { position: 60, importance: #HIGH } ],
          identification: [ { position: 60 } ] }
   Height;
   
+  @EndUserText.label: 'Width'
   @UI: { lineItem:       [ { position: 70, importance: #HIGH } ],
          identification: [ { position: 70 } ] }
   Width;
   
+  @EndUserText.label: 'Depth'
   @UI: { lineItem:       [ { position: 80, importance: #HIGH } ],
          identification: [ { position: 80 } ] }
   Depth;
   
+  @EndUserText.label: 'Quantity'
   @UI: { lineItem:       [ { position: 90, importance: #HIGH } ],
          identification: [ { position: 90 } ] }
   Quantity;
   
-
+  @EndUserText.label: 'UoM'
+  UnitOfMeasure;
 }

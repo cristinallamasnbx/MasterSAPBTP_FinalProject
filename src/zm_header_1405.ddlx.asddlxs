@@ -18,11 +18,13 @@ annotate view ZC_HEADER_1405 with
                  targetElement: '_Item'}]
   @UI.hidden: true
   UUID;            
-
+  
+  @EndUserText.label: 'Sales Order ID'
   @UI: { lineItem:       [ { position: 10, importance: #MEDIUM } ],
          identification: [ { position: 10, label: 'Sales Order Id' } ] }
   Id;
-
+  
+  @EndUserText.label: 'Email'
   @UI: { lineItem:       [ { position: 20, importance: #HIGH } ] ,
          identification: [ { position: 20 } ],
          selectionField: [ { position: 20 } ] }
@@ -39,7 +41,8 @@ annotate view ZC_HEADER_1405 with
          identification: [ { position: 40 } ],
          selectionField: [ { position: 40 } ] }
   LastName;
-
+  
+  @EndUserText.label: 'Country'
   @UI: { lineItem:       [ { position: 50, importance: #MEDIUM } ] ,
          identification: [ { position: 50 } ] }
   Country;
