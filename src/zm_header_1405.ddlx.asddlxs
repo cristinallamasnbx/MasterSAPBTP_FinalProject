@@ -59,9 +59,14 @@ annotate view ZC_HEADER_1405 with
   DeliveryDate;
 
   @EndUserText.label: 'Order status'
-  @UI: { lineItem:       [ { position: 80, importance: #HIGH, cssDefault: { width: '6rem' } } ] ,
-         identification: [ { position: 80 } ] }
+  @UI: { identification: [ { position: 80 } ], selectionField: [ { position: 50 } ] }
+  @Consumption.valueHelpDefinition: [{ entity : {name: 'ZI_STATUSVH_1405',
+                                       element: 'Status'  } }]
   OrderStatus;
+
+  @EndUserText.label: 'Order status'
+  @UI: { lineItem:       [ { position: 80, importance: #HIGH, cssDefault: { width: '6rem' } } ] }
+  OrderStatusText;
 
   @EndUserText.label: ' '
   @UI: { lineItem:       [ { position: 05, importance: #HIGH, cssDefault: { width: '5rem' } } ] }

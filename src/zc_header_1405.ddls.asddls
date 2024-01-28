@@ -21,6 +21,7 @@ as projection on ZI_HEADER2_1405
         CreatedOn,
         DeliveryDate,
         OrderStatus,
+        _Status.Text as OrderStatusText,
         ImageUrl,
         
         @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_VE_CUST_INITIAL'
@@ -28,5 +29,6 @@ as projection on ZI_HEADER2_1405
         virtual CustImageURL: abap.char( 528 ),
         
         /* Associations */
-        _Item: redirected to composition child ZC_ITEM_1405
+        _Item: redirected to composition child ZC_ITEM_1405,
+        _Status
 }

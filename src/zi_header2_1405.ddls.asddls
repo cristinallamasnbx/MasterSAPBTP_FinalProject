@@ -16,5 +16,6 @@ define root view entity ZI_HEADER2_1405
         ImageUrl,
         
         /* Associations */
-        _Item : redirected to composition child ZI_ITEM2_1405
+        _Item : redirected to composition child ZI_ITEM2_1405,
+        _Status
 }

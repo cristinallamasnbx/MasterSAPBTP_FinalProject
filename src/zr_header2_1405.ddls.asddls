@@ -10,6 +10,7 @@
 define root view entity ZR_HEADER2_1405
   as select from zheader_1405
   composition [0..*] of ZR_ITEM2_1405 as _Item
+  association [1..1] to ZI_STATUSVH_1405 as _Status on $projection.OrderStatus = _Status.Status
 {
   key  uuid                  as UUID,
        id                    as Id,
@@ -35,5 +36,6 @@ define root view entity ZR_HEADER2_1405
        @Semantics.systemDateTime.lastChangedAt: true
        last_changed_at       as LastChangedAt,
 
-       _Item
+       _Item,
+       _Status
 }
