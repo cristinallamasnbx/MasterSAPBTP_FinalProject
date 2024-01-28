@@ -19,6 +19,8 @@ annotate entity ZC_ITEM_1405 with
   HeaderUUID;
   
   @EndUserText.label: 'Item ID'
+  @UI: { lineItem:       [ { position: 05, importance: #HIGH } ],
+         identification: [ { position: 05 } ] }
   Id;
   
   @EndUserText.label: 'Name'

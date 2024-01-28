@@ -57,6 +57,8 @@ CLASS lhc_Header DEFINITION INHERITING FROM cl_abap_behavior_handler.
     METHODS Resume FOR MODIFY
       IMPORTING keys FOR ACTION Header~Resume.
 
+    METHODS validateEmail FOR VALIDATE ON SAVE
+      IMPORTING keys FOR Header~validateEmail.
 ENDCLASS.
 
 CLASS lhc_Header IMPLEMENTATION.
@@ -101,32 +103,6 @@ CLASS lhc_Header IMPLEMENTATION.
          WITH CORRESPONDING #( keys )
          RESULT DATA(lt_headers)
          FAILED failed.
-
-    "CHECK lt_headers IS NOT INITIAL.
-
-*    lv_update_requested = COND #( WHEN requested_authorizations-%update = if_abap_behv=>mk-on
-*                                  THEN abap_true
-*                                  ELSE abap_false ).
-*
-*
-*    lv_delete_requested = COND #( WHEN requested_authorizations-%delete = if_abap_behv=>mk-on
-*                                  THEN abap_true
-*                                  ELSE abap_false ).
-
-*    LOOP AT lt_headers INTO DATA(ls_header).
-*      APPEND VALUE #( LET upd_auth = COND #( WHEN lv_update_granted EQ abap_true
-*                                             THEN if_abap_behv=>auth-allowed
-*                                             ELSE if_abap_behv=>auth-unauthorized )
-*
-*                          del_auth = COND #( WHEN lv_delete_granted EQ abap_true
-*                                             THEN if_abap_behv=>auth-allowed
-*                                             ELSE if_abap_behv=>auth-unauthorized )
-*
-*                      IN %tky         = ls_header-%tky
-*                         %update      = upd_auth
-*                         %delete      = del_auth
-*                    ) TO result.
-*    ENDLOOP.
 
     LOOP AT lt_headers INTO DATA(ls_header).
       APPEND VALUE #( LET upd_auth = abap_true
@@ -254,6 +230,27 @@ CLASS lhc_Header IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD Resume.
+
+  ENDMETHOD.
+
+  METHOD validateEmail.
+   READ ENTITIES OF zr_header2_1405 IN LOCAL MODE
+         ENTITY Header
+         FIELDS ( Email )
+         WITH CORRESPONDING #( keys )
+    RESULT DATA(lt_headers).
+
+    LOOP AT lt_headers INTO DATA(ls_header).
+        IF ls_header-Email IS INITIAL.
+          APPEND VALUE #( %key = ls_header-%key ) TO failed-header.
+          APPEND VALUE #( %key = ls_header-%key
+                %msg = new_message_with_text(
+                            severity = if_abap_behv_message=>severity-error
+                            text = 'Please enter an email'
+                        )
+                %element-Email = if_abap_behv=>mk-on ) TO reported-header.
+        ENDIF.
+    ENDLOOP.
 
   ENDMETHOD.
 
